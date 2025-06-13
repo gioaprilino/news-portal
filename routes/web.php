@@ -12,10 +12,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route untuk semua user (melihat daftar berita)
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 
-// Route untuk Admin - CRUD lengkap berita (PENTING: Taruh sebelum route show)
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
     Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
@@ -24,7 +22,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 });
 
-// Route show harus di paling bawah agar tidak menangkap /berita/create
 Route::get('/berita/{berita}', [BeritaController::class, 'show'])->name('berita.show');
 
 Route::middleware('auth')->group(function () {

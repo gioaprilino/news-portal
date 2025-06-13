@@ -49,7 +49,7 @@ class BeritaController extends Controller
     }
 
     /**
-     * Tampilkan detail satu berita (opsional).
+     * Tampilkan detail satu berita 
      */
     public function show(Berita $berita)
     {
