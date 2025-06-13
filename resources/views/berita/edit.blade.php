@@ -118,7 +118,6 @@
     </div>
 
     <script>
-        // Preview gambar sebelum upload
         document.getElementById('foto').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {

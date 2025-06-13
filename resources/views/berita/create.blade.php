@@ -104,13 +104,11 @@
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    // Hapus preview sebelumnya jika ada
                     const existingPreview = document.getElementById('foto-preview');
                     if (existingPreview) {
                         existingPreview.remove();
                     }
                     
-                    // Buat elemen preview baru
                     const preview = document.createElement('div');
                     preview.id = 'foto-preview';
                     preview.className = 'mt-2';
@@ -119,7 +117,7 @@
                         <p class="text-sm text-gray-600 mt-1">Preview foto</p>
                     `;
                     
-                    // Tambahkan setelah input file
+            
                     document.getElementById('foto').parentNode.appendChild(preview);
                 };
                 reader.readAsDataURL(file);
